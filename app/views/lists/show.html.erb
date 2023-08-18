@@ -1,0 +1,25 @@
+<div class="container justify-center">
+  <div class= "row p-4">
+    <h1> <%= @list.name %></h1>
+  </div>
+</div>
+<div class="container mt-3 d-flex justify-center">
+  <div class="row p-4">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card" style="width: 300px;">
+        <%= image_tag("https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg", alt: "cinema") %>
+        <div class="card-body">
+          <h3> <%= bookmark.movie.title %> </h3>
+          <p> Review:<%= bookmark.comment %></p>
+          <p> Rating: <strong> <%= bookmark.movie.rating  %> </strong> </p>
+          <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container justify-center">
+<%= link_to "Back", lists_path, class: "btn btn-primary mt-4" %>
+<%= link_to "Add a new bookmark", new_list_bookmark_path(@list), class: "btn btn-primary mt-4" %>
+</div>
+</div>

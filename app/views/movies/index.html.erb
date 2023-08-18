@@ -1,0 +1,10 @@
+<h1>Movies!</h1>
+
+<% @movies.each do |movie| %>
+<h3><%= link_to movie.title, movie_path(movie.id) %></h3>
+<%= movie.overview %>
+<p><%= movie.poster_url %></p>
+<p><%= movie.rating %></p>
+<% end %>
+
+<a href="<%=new_movie_path %>" class= "btn btn-primary" style= "text-decoration: none;"> Add new movie</a>

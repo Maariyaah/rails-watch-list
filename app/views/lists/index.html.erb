@@ -1,0 +1,20 @@
+<div class="banner" style="height: 400px; background-image: url(https://media.timeout.com/images/103703449/750/422/image.jpg)">
+  <div class="container justify-center mt-9">
+    <h2><strong>Rails Watch List</strong></h2>
+      <p>Save all of your favourite movies here </p>
+  </div>
+</div>
+
+<div class="container mt-3 d-flex justify-center" >
+  <div class="row p-3">
+    <% @lists.each do |list| %>
+      <div class="card" style="width: 450px;" display="flex" >
+        <h3><%= link_to list.name, list_path(list.id) %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container justify-center">
+<a href="<%=new_list_path %>" class= "btn btn-primary" style= "text-decoration: none;"> Add new list</a>
+</div>
